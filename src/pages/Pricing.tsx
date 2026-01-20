@@ -7,7 +7,7 @@ const pricingPlans = [
   {
     name: "One-Time Package",
     description: "Perfect for a single, thoughtful gesture",
-    price: 49,
+    price: 100,
     period: "per package",
     features: [
       "Choose any care package",
@@ -22,7 +22,7 @@ const pricingPlans = [
   {
     name: "Monthly Subscription",
     description: "Keep the love flowing every month",
-    price: 44,
+    price: 89,
     period: "per month",
     savings: "Save 10%",
     features: [
@@ -39,7 +39,7 @@ const pricingPlans = [
   {
     name: "Quarterly Plan",
     description: "Great for deployment length support",
-    price: 125,
+    price: 249,
     period: "per quarter",
     savings: "Save 15%",
     features: [
@@ -56,7 +56,7 @@ const pricingPlans = [
   {
     name: "Annual Plan",
     description: "Best value for long deployments",
-    price: 399,
+    price: 799,
     period: "per year",
     savings: "Save 25%",
     features: [
