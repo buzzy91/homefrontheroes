@@ -101,8 +101,8 @@ export default function ContactPage() {
                   {
                     icon: Mail,
                     label: "Email",
-                    value: "support@homefrontheroes.com",
-                    href: "mailto:support@homefrontheroes.com",
+                    value: "davidfray701@gmail.com",
+                    href: "mailto:davidfray701@gmail.com",
                   },
                   {
                     icon: Phone,
