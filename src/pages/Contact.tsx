@@ -107,8 +107,8 @@ export default function ContactPage() {
                   {
                     icon: Phone,
                     label: "Phone",
-                    value: "(800) 555-HERO",
-                    href: "tel:+18005554376",
+                    value: "(315) 270-6395",
+                    href: "tel:+13152706395",
                   },
                   {
                     icon: MapPin,
