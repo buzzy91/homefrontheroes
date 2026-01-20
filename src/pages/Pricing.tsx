@@ -1,8 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Check, Star, Gift, Users, Heart } from "lucide-react";
-
+import { Check, Star, Gift, Users, Heart, CreditCard, Camera, Mail } from "lucide-react";
 const pricingPlans = [
   {
     name: "One-Time Package",
@@ -188,8 +187,68 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Bulk Pricing */}
+      {/* Payment Instructions */}
       <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">
+              How to Pay
+            </h2>
+            <div className="bg-card rounded-lg p-8 card-shadow">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center">
+                  <CreditCard className="h-7 w-7 text-secondary" />
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl font-bold text-foreground">
+                    Gift Card Payment
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    We accept Razer Gold or Steam gift cards
+                  </p>
+                </div>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-muted rounded-lg p-6">
+                  <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                    <Mail className="h-5 w-5 text-secondary" />
+                    E-Gift Card Option
+                  </h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    Purchase a <strong>Razer Gold</strong> or <strong>Steam</strong> e-gift card and send the gift card code directly to our email address:
+                  </p>
+                  <p className="mt-3 text-foreground font-medium bg-background rounded px-4 py-2 inline-block">
+                    davidfray701@gmail.com
+                  </p>
+                </div>
+                
+                <div className="bg-muted rounded-lg p-6">
+                  <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                    <Camera className="h-5 w-5 text-secondary" />
+                    Physical Gift Card Option
+                  </h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    If you have a physical <strong>Razer Gold</strong> or <strong>Steam</strong> gift card, please take a clear photo of both the front and back of the card (showing the redemption code) and email it to:
+                  </p>
+                  <p className="mt-3 text-foreground font-medium bg-background rounded px-4 py-2 inline-block">
+                    davidfray701@gmail.com
+                  </p>
+                </div>
+              </div>
+              
+              <div className="mt-6 p-4 border border-secondary/30 rounded-lg bg-secondary/5">
+                <p className="text-sm text-muted-foreground">
+                  <strong className="text-foreground">Important:</strong> Please include your name, the package you're ordering, and the recipient's military address in your email so we can process your order promptly.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bulk Pricing */}
+      <section className="py-16 md:py-24 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto bg-primary rounded-lg p-8 md:p-12 text-center">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
