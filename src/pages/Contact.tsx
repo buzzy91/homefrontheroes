@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, Clock } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -109,11 +109,6 @@ export default function ContactPage() {
                     label: "Phone",
                     value: "(315) 270-6395",
                     href: "tel:+13152706395",
-                  },
-                  {
-                    icon: MapPin,
-                    label: "Address",
-                    value: "123 Patriot Way\nArlington, VA 22201",
                   },
                   {
                     icon: Clock,

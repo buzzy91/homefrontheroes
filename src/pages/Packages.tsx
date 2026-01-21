@@ -1,6 +1,13 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import carePackage from "@/assets/care-package.jpg";
 import hygienePackage from "@/assets/hygiene-package.jpg";
 import holidayPackage from "@/assets/holiday-package.jpg";
@@ -46,6 +53,8 @@ const packages = [
 ];
 
 export default function PackagesPage() {
+  const [selectedPackage, setSelectedPackage] = useState<typeof packages[0] | null>(null);
+
   return (
     <Layout>
       {/* Hero */}
@@ -106,8 +115,8 @@ export default function PackagesPage() {
                           <p className="text-xs text-muted-foreground">{pkg.customNote}</p>
                         )}
                       </div>
-                      <Button asChild>
-                        <Link to="/contact">Select Package</Link>
+                      <Button onClick={() => setSelectedPackage(pkg)}>
+                        Select Package
                       </Button>
                     </div>
                   </div>
@@ -118,59 +127,62 @@ export default function PackagesPage() {
         </div>
       </section>
 
-      {/* How to Pay Section */}
-      <section className="py-16 md:py-24 bg-muted">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
-              How to Pay
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8">
-              After selecting your package, complete your payment using one of the methods below.
-            </p>
-            
-            <div className="bg-card rounded-lg p-8 card-shadow text-left">
-              <div className="space-y-6">
-                <div>
-                  <h3 className="font-semibold text-foreground text-lg mb-2">Accepted Payment Methods</h3>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <span className="text-secondary font-bold">•</span>
-                      <span><strong>Razer Gold Gift Card</strong> - E-gift card or physical card</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-secondary font-bold">•</span>
-                      <span><strong>Steam Gift Card</strong> - E-gift card or physical card</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div className="border-t border-border pt-6">
-                  <h3 className="font-semibold text-foreground text-lg mb-2">Payment Instructions</h3>
-                  <ol className="space-y-3 text-muted-foreground list-decimal list-inside">
-                    <li>Select your desired package above and note the total amount</li>
-                    <li>Purchase a Razer Gold or Steam gift card for the package amount</li>
-                    <li>For <strong>e-gift cards</strong>: Forward the email or screenshot the code</li>
-                    <li>For <strong>physical cards</strong>: Take a clear photo of the front and back of the card</li>
-                    <li>Send your gift card details to: <strong className="text-secondary">davidfray701@gmail.com</strong></li>
-                    <li>Include your name, package choice, and any special requests</li>
-                  </ol>
-                </div>
-                
-                <div className="bg-secondary/10 rounded-lg p-4 mt-4">
-                  <p className="text-sm text-muted-foreground">
-                    <strong className="text-foreground">Important:</strong> Please ensure the gift card code is clearly visible in your photo or email. 
-                    We'll confirm receipt and begin preparing your care package within 24-48 hours.
-                  </p>
-                </div>
-              </div>
+      {/* How to Pay Dialog */}
+      <Dialog open={!!selectedPackage} onOpenChange={(open) => !open && setSelectedPackage(null)}>
+        <DialogContent className="max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="font-serif text-2xl">
+              How to Pay for {selectedPackage?.name}
+            </DialogTitle>
+          </DialogHeader>
+          
+          <div className="space-y-6">
+            <div className="bg-secondary/10 rounded-lg p-4">
+              <p className="text-lg font-semibold text-foreground">
+                Total: <span className="text-secondary">${selectedPackage?.price}</span>
+              </p>
             </div>
+
+            <div>
+              <h3 className="font-semibold text-foreground mb-2">Accepted Payment Methods</h3>
+              <ul className="space-y-2 text-muted-foreground text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary font-bold">•</span>
+                  <span><strong>Razer Gold Gift Card</strong> - E-gift card or physical card</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary font-bold">•</span>
+                  <span><strong>Steam Gift Card</strong> - E-gift card or physical card</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="border-t border-border pt-4">
+              <h3 className="font-semibold text-foreground mb-2">Payment Instructions</h3>
+              <ol className="space-y-2 text-muted-foreground text-sm list-decimal list-inside">
+                <li>Purchase a gift card for ${selectedPackage?.price}</li>
+                <li>For <strong>e-gift cards</strong>: Screenshot the code</li>
+                <li>For <strong>physical cards</strong>: Photo the front and back</li>
+                <li>Send to: <strong className="text-secondary">davidfray701@gmail.com</strong></li>
+                <li>Include your name, package choice, and special requests</li>
+              </ol>
+            </div>
+            
+            <div className="bg-muted rounded-lg p-4">
+              <p className="text-sm text-muted-foreground">
+                <strong className="text-foreground">Note:</strong> We'll confirm receipt and begin preparing your care package within 24-48 hours.
+              </p>
+            </div>
+
+            <Button asChild className="w-full">
+              <Link to="/contact">Contact Us With Questions</Link>
+            </Button>
           </div>
-        </div>
-      </section>
+        </DialogContent>
+      </Dialog>
 
       {/* Subscription CTA */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-muted">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
             Want Regular Deliveries?
