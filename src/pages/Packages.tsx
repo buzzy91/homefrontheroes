@@ -38,7 +38,7 @@ const packages = [
     name: "Custom Care Package",
     description: "Build your own package from scratch. Choose exactly what you want to include based on your service member's preferences and needs.",
     includes: ["Choose from 100+ items", "Personalized message", "Custom combination", "Dietary accommodations", "Special requests honored", "Flexible pricing"],
-    price: 100,
+    price: 150,
     image: carePackage,
     popular: false,
     customNote: "Starting price - varies by selection",
